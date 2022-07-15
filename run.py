@@ -245,7 +245,7 @@ def run(opts, spec=None, prob=None, distribution=None):
 if __name__ == "__main__":
     
     for prob in ['top']:
-        for distribution in ['const', 'unif']: # uncomment for TSP/CVRP
+        for distribution in ['const', 'unif']: # comment for TSP/CVRP
             for spec in ['A','B','C','D','E']:
                 print(f'problem : {prob}, spec = {spec}')
                 run(get_options(), spec, prob, distribution=distribution) # set distribution as None for TSP/CVRP
