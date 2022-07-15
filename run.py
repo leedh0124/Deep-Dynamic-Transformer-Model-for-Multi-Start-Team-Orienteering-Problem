@@ -23,7 +23,7 @@ from utils import torch_load_cpu, load_problem
 def run(opts, spec=None, prob=None, distribution=None):
     opts.baseline = 'rollout' 
     opts.problem = prob # 'top', 'tsp', 'cvrp'
-    opts.data_distribution = 'const'
+    opts.data_distribution = distribution # None for AM
     opts.n_encode_layers = 3 # 4 for DDTM, 3 for AM
     opts.n_decode_layers = 2 # irrevelant for AM
     opts.num_veh = 2  # irrevelant for AM
