@@ -20,8 +20,7 @@ from nets.pointer_network import PointerNetwork, CriticNetworkLSTM
 from utils import torch_load_cpu, load_problem
 
 
-def run(opts, spec=None, prob=None):
-    # make TOP
+def run(opts, spec=None, prob=None, distribution=None):
     opts.baseline = 'rollout' 
     opts.problem = prob # 'top', 'tsp', 'cvrp'
     opts.data_distribution = 'const'
@@ -30,7 +29,7 @@ def run(opts, spec=None, prob=None):
     opts.num_veh = 2  # irrevelant for AM
     opts.graph_size = 20
     
-    opts.n_epochs = 3
+    opts.n_epochs = 200
     
     opts.save_dir = os.path.join(
         opts.output_dir,
@@ -245,9 +244,10 @@ def run(opts, spec=None, prob=None):
 
 if __name__ == "__main__":
     
-    for prob in ['tsp']:
-        for spec in ['A','B','D','E']:
-            print(f'problem : {prob}, spec = {spec}')
-            run(get_options(), spec, prob)
-            print("--------------------------------------------------")
+    for prob in ['top']:
+        for distribution in ['const', 'unif']: # uncomment for TSP/CVRP
+            for spec in ['A','B','C','D','E']:
+                print(f'problem : {prob}, spec = {spec}')
+                run(get_options(), spec, prob, distribution=distribution) # set distribution as None for TSP/CVRP
+                print("--------------------------------------------------")
     
