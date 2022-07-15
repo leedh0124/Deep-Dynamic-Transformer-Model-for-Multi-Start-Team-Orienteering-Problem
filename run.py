@@ -13,8 +13,8 @@ from options import get_options
 from train import train_epoch, validate, get_inner_model
 from reinforce_baselines import NoBaseline, ExponentialBaseline, CriticBaseline, RolloutBaseline, WarmupBaseline
 
-# from nets.attention_model import AttentionModel
-from nets.attention_model_original import AttentionModel
+from nets.attention_model import AttentionModel
+# from nets.attention_model_original import AttentionModel
 
 from nets.pointer_network import PointerNetwork, CriticNetworkLSTM
 from utils import torch_load_cpu, load_problem
@@ -42,37 +42,37 @@ def run(opts, spec=None, prob=None):
         opts.max_ent = False
         opts.with_replace = False
         opts.aug_factor = 1
-        opts.epoch_size = 80 #1280000
-        opts.batch_size = 40 #512
-        opts.log_step = 10 # 250
+        opts.epoch_size = 1280000
+        opts.batch_size = 512
+        opts.log_step = 250
     elif spec=='B':
         opts.max_ent = True
         opts.with_replace = False
         opts.aug_factor = 1
-        opts.epoch_size = 80 #1280000
-        opts.batch_size = 40 #512
-        opts.log_step = 1 #250
+        opts.epoch_size = 1280000
+        opts.batch_size = 512
+        opts.log_step = 250
     elif spec=='C':
         opts.max_ent = False
         opts.with_replace = True
         opts.aug_factor = 8
-        opts.epoch_size = 10 #160000
-        opts.batch_size = 5 #64
-        opts.log_step = 1 #250
+        opts.epoch_size = 160000
+        opts.batch_size = 64
+        opts.log_step = 250
     elif spec=='D':
         opts.max_ent = False
         opts.with_replace = False
         opts.aug_factor = 8
-        opts.epoch_size = 10 #160000
-        opts.batch_size = 5 #64
-        opts.log_step = 1 #250
+        opts.epoch_size = 160000
+        opts.batch_size = 64
+        opts.log_step = 250
     elif spec =='E':
         opts.max_ent = True
         opts.with_replace = False
         opts.aug_factor = 8
-        opts.epoch_size = 10 #160000
-        opts.batch_size = 5 #64
-        opts.log_step = 1 #250
+        opts.epoch_size = 160000
+        opts.batch_size = 64
+        opts.log_step = 250
     
     # Use the same validation set as Kool
     if opts.problem == 'tsp':
