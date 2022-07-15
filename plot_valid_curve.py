@@ -7,9 +7,7 @@ import matplotlib.pyplot as plt
 from utils.functions import json_processing, smooth
 import matplotlib.ticker as ticker
 
-# https://dailyheumsi.tistory.com/97 pyplot 그래프의 범주박스 위치 변경하기
-# https://www.bastibl.net/publication-quality-plots/ plot IEEE figures
-# IEEE Figsize: one column wide (3.5 in) or one page wide (7.16), maximum depth of 8.5, allow space for caption
+
 
 #%% 
 n_epochs = 200
